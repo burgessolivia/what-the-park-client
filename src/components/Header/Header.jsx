@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./Header.scss";
 import displayIcon from "../../assets/icons/dark-mode.svg";
 
@@ -13,11 +13,11 @@ export default function Header() {
             className="header__top-display-icon"
           />
         </span>
-        {/* <Link className="header__top-logo"></Link> */}
+        <Link className="header__top-logo">WTP</Link>
       </div>
       <div className="header__bottom">
-        <span className="header__bottom-left">Home</span>
-        <span className="header__bottom-right">About</span>
+        <Link className="header__bottom-left">Home</Link>
+        <Link className="header__bottom-right">About</Link>
       </div>
     </header>
   );
