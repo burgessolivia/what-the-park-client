@@ -1,8 +1,7 @@
 import "./App.scss";
-import { BrowserRouter, Navigate, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header.jsx";
-// import HomePage
-// import UploadPage
+import HomePage from "./pages/HomePage/HomePage.jsx";
 // import AboutPage
 
 export default function App() {
@@ -10,10 +9,9 @@ export default function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        {/* <Route path="/" element={<Navigate to="/home" />} /> */}
-        {/* <Route path="/home" element={<HomePage />} /> */}
-        {/* <Route path="/upload" element={<UploadPage />} /> */}
-        {/* <Route path="/about" element={<AboutPage />} /> */}
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/home" element={<HomePage />} />
+        {/* <Route path="/about" element={<about />} /> */}
       </Routes>
       {/* import footer  */}
     </BrowserRouter>

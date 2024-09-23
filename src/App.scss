@@ -1,2 +1,2 @@
-@use "./styles/resets.scss";
-@use "./styles/fonts.scss";
+@use "./styles/resets.scss" as *;
+@use "./styles/fonts.scss" as *;
