@@ -1,0 +1,25 @@
+@use "../../styles/breakpoints.scss" as *;
+@use "../../styles/colours.scss" as *;
+
+.footer {
+  background-color: $background-light;
+  display: flex;
+  flex-direction: row;
+  padding: 2rem 0 1rem 0;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  &__img-git {
+    width: 1.7rem;
+    height: 1.6rem;
+    padding-top: 0.3rem;
+  }
+
+  &__img-linked {
+    width: 2rem;
+    height: 2rem;
+  }
+}

@@ -1,12 +1,15 @@
 @use "../../styles/colours.scss" as *;
+@use "../../styles//fonts.scss" as *;
+@use "../../styles/breakpoints.scss" as *;
+@use "../../styles//mixins.scss" as *;
 
 .main {
   background-color: $background-light;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 6rem;
-  padding-bottom: 12rem;
+  padding-top: 7rem;
+  padding-bottom: 13rem;
 
   &__title {
     font-weight: 600;
