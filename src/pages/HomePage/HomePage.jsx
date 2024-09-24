@@ -1,38 +1,34 @@
 import "./HomePage.scss";
-import { IoCameraOutline } from "react-icons/io5";
-import Webcam from "react-webcam";
 import React, { useState } from "react";
-import { useRef } from "react";
+import Camera from "../../components/Camera/Camera";
+import { IoCameraOutline } from "react-icons/io5";
+import axios from "axios";
+
+const apiUrl = import.meta.env.VITE_API_URL; // Access the API URL from .env
 
 export default function HomePage() {
-  const webRef = useRef(null);
+  const [showCamera, setShowCamera] = useState(false);
   const [image, setImage] = useState(null);
-  const showImage = () => {
-    if (webRef.current) {
-      const screenshot = webRef.current.getScreenshot();
-      setImage(screenshot); // Set the screenshot as the image source
-      console.log(screenshot); // Log the image data (base64 encoded)
-    }
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    setShowCamera(!showCamera);
+    setImage(null);
   };
 
   return (
     <section className="main">
       <h1 className="main__title"> Tap to find out </h1>
+      {/* <button onClick={handleClick} className="main__button">
+        show camera
+      </button> */}
       <div className="main__img-div">
-        {/* <IoCameraOutline className="main__img"> */}
-        {/* <CameraComponent /> */}
-        {/* <WebcamComponent /> */}
-        {/* </IoCameraOutline> */}
-        <Webcam ref={webRef} alt="webcam screenshot" />
-        <button
-          onClick={() => {
-            showImage();
-          }}
-        >
-          Show image in console
-        </button>
-        <img src={image} />
+        {showCamera && (
+          <Camera setImage={setImage} setShowCamera={setShowCamera} />
+        )}
+        <IoCameraOutline onClick={handleClick} className="main__img" />
       </div>
+      <img src={image} />
     </section>
   );
 }
