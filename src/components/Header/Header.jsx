@@ -19,6 +19,20 @@ export default function Header() {
         <Link className="header__bottom-left">Home</Link>
         <Link className="header__bottom-right">About</Link>
       </div>
+      <div className="header__tablet">
+        <span className="header__tablet-display">
+          <img
+            src={displayIcon}
+            alt="dark mode button"
+            className="header__tablet-display-icon"
+          />
+        </span>
+        <Link className="header__tablet-logo">WTP</Link>
+        <div className="header__tablet-display-about">
+          <Link className="header__tablet-home">Home</Link>
+          <Link className="header__tablet-about">About</Link>
+        </div>
+      </div>
     </header>
   );
 }
