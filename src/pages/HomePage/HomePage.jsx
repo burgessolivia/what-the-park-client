@@ -1,6 +1,5 @@
 import "./HomePage.scss";
 import React, { useState, useRef } from "react";
-// import Camera from "../../components/Camera/Camera";
 import { IoCameraOutline } from "react-icons/io5";
 import axios from "axios";
 import { TbCapture } from "react-icons/tb";
@@ -42,18 +41,27 @@ export default function HomePage() {
       <h1 className="main__title"> Tap to find out </h1>
       <section className="cam">
         {showCamera && (
-          <Webcam ref={webRef} alt="webcam screenshot" height={540} />
+          <Webcam
+            ref={webRef}
+            alt="webcam screenshot"
+            className="cam__webcam"
+          />
         )}
         {!showCamera && !image && (
-          <IoCameraOutline onClick={handleClick} className="main__img" />
+          <div className="main__img-div">
+            <IoCameraOutline onClick={handleClick} className="main__img" />
+          </div>
         )}
         <img src={image} />
         {showCamera && (
-          <TbCapture
-            onClick={() => {
-              showImage();
-            }}
-          />
+          <div className="cam__capture-div">
+            <TbCapture
+              className="cam__capture"
+              onClick={() => {
+                showImage();
+              }}
+            />
+          </div>
         )}
         {image && (
           <button className="cam__submit" onClick={handleSubmitClick}>

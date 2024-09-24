@@ -21,10 +21,25 @@
     width: 1rem;
   }
 
+  &__top-logo {
+    color: $secondary-light;
+    text-decoration: none;
+  }
+
   &__bottom {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     gap: 0.5rem;
+  }
+
+  &__bottom-left {
+    color: $secondary-light;
+    text-decoration: none;
+  }
+
+  &__bottom-right {
+    color: $secondary-light;
+    text-decoration: none;
   }
 }
