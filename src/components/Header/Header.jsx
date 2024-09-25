@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Header.scss";
 import displayIcon from "../../assets/icons/dark-mode.svg";
+import logo from "../../assets/logos/logo-full.png";
 
 export default function Header() {
   return (
@@ -14,7 +15,7 @@ export default function Header() {
           />
         </span>
         <Link to={`/home`} className="header__top-logo">
-          WTP
+          <img src={logo} alt="logo image" className="header__top-logo-img" />
         </Link>
       </div>
       <div className="header__bottom">
@@ -34,7 +35,11 @@ export default function Header() {
           />
         </span>
         <Link to={`/home`} className="header__tablet-logo">
-          WTP
+          <img
+            src={logo}
+            alt="logo image"
+            className="header__tablet-logo-img"
+          />
         </Link>
         <div className="header__tablet-display-about">
           <Link to={`/home`} className="header__tablet-home">

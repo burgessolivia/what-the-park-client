@@ -5,6 +5,8 @@ import axios from "axios";
 import { TbCapture } from "react-icons/tb";
 import Webcam from "react-webcam";
 import { BeatLoader } from "react-spinners";
+import { HiOutlineRefresh } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -12,7 +14,10 @@ export default function HomePage() {
   const [showCamera, setShowCamera] = useState(false);
   const [image, setImage] = useState(null);
   const webRef = useRef(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [response, setResponse] = useState("");
+  const [submit, setSubmit] = useState(true);
+  const [refresh, setRefresh] = useState(false);
 
   const showImage = () => {
     if (webRef.current) {
@@ -30,12 +35,22 @@ export default function HomePage() {
   };
 
   const handleSubmitClick = async () => {
+    setSubmit(false);
+    setLoading(true);
+    setRefresh(true);
     if (image) {
       const response = await axios.post(`${apiUrl}/upload`, {
         imageData: image,
       });
+      setLoading(false);
+      setResponse(response.data.choices[0].message.content);
       console.log(response.data);
     }
+  };
+
+  const refreshPage = () => {
+    window.location.reload();
+    setRefresh(true);
   };
 
   return (
@@ -56,7 +71,7 @@ export default function HomePage() {
             <IoCameraOutline onClick={handleClick} className="main__img" />
           </div>
         )}
-        <img src={image} />
+        <img src={image} className="cam__screenshot" />
         {showCamera && (
           <div className="cam__capture-div">
             <TbCapture
@@ -67,11 +82,41 @@ export default function HomePage() {
             />
           </div>
         )}
-        {image && (
-          <button className="cam__submit" onClick={handleSubmitClick}>
+        {image && !loading && submit && (
+          <button
+            className="cam__submit"
+            onClick={() => {
+              handleSubmitClick();
+              setLoading();
+            }}
+          >
             Submit
           </button>
         )}
+        <div>
+          <BeatLoader
+            className="cam__loader"
+            // color={"purple"}
+            loading={loading}
+            // cssOverride={override}
+            size={150}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+        {/* )} */}
+      </section>
+      <section className="response">
+        <div className="response__message">{response}</div>
+        {refresh && (
+          <Link to="/home" className="response__refresh">
+            <HiOutlineRefresh
+              onClick={refreshPage}
+              className="response__refresh-icon"
+            />
+          </Link>
+        )}
+        ;
       </section>
     </section>
   );

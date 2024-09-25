@@ -8,17 +8,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 6rem;
-  padding-bottom: 17rem;
+  padding-top: 4rem;
+  // padding-bottom: 17rem;
 
   @include tablet {
-    padding-bottom: 25rem;
+    // padding-bottom: 25rem;
   }
 
   &__title {
     font-weight: 700;
     font-size: 2rem;
-    color: $tertiary-light;
+    color: $primary-light;
 
     @include tablet {
       font-size: 3.5rem;
@@ -34,7 +34,7 @@
   }
 
   &__img-div {
-    border: 2px solid $tertiary-light;
+    border: 2px solid $primary-light;
     border-radius: 70px;
     height: 9rem;
     width: 9rem;
@@ -59,7 +59,7 @@
     height: 6rem;
     width: 6rem;
     background-color: $background-light;
-    color: $tertiary-light;
+    color: $primary-light;
 
     @include tablet {
       height: 8rem;
@@ -81,6 +81,20 @@
   &__webcam {
     width: 375px;
     border: 1px solid black;
+    transition: 1s;
+
+    @include tablet {
+      width: 700px;
+    }
+
+    @include desktop {
+      width: 900px;
+    }
+  }
+
+  &__screenshot {
+    width: 375px;
+    transition: 1s;
 
     @include tablet {
       width: 700px;
@@ -92,7 +106,7 @@
   }
 
   &__capture-div {
-    border: 1.5px solid $tertiary-light;
+    border: 1.5px solid $primary-light;
     border-radius: 50px;
     width: 2.5rem;
     height: 2.5rem;
@@ -115,7 +129,7 @@
   &__capture {
     width: 1.5rem;
     height: 1.5rem;
-    color: $tertiary-light;
+    color: $primary-light;
 
     @include tablet {
       width: 3rem;
@@ -131,9 +145,43 @@
   &__submit {
     padding: 0.7rem;
     margin: 1rem;
-    background-color: $tertiary-light;
+    background-color: $primary-light;
     border: none;
     border-radius: 12px;
     color: $background-light;
+  }
+
+  &__loader {
+    color: $primary-light;
+  }
+}
+
+.response {
+  display: flex;
+  flex-direction: column;
+
+  &__message {
+    // border: 1px solid black;
+    padding: 1rem;
+    color: $light-font-dark;
+    font-size: 1.5rem;
+    width: 375px;
+
+    @include tablet {
+      width: 700px;
+    }
+
+    @include desktop {
+      width: 900px;
+    }
+  }
+
+  &__refresh {
+    width: 2rem;
+    height: 2rem;
+    &-icon {
+      width: 2rem;
+      height: 2rem;
+    }
   }
 }
