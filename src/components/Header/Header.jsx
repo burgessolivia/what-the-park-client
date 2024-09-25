@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Header.scss";
 import displayIcon from "../../assets/icons/dark-mode.svg";
 
@@ -13,11 +13,17 @@ export default function Header() {
             className="header__top-display-icon"
           />
         </span>
-        <Link className="header__top-logo">WTP</Link>
+        <Link to={`/home`} className="header__top-logo">
+          WTP
+        </Link>
       </div>
       <div className="header__bottom">
-        <Link className="header__bottom-left">Home</Link>
-        <Link className="header__bottom-right">About</Link>
+        <Link to={`/home`} className="header__bottom-left">
+          Home
+        </Link>
+        <Link to={`/about`} className="header__bottom-right">
+          About
+        </Link>
       </div>
       <div className="header__tablet">
         <span className="header__tablet-display">
@@ -27,10 +33,16 @@ export default function Header() {
             className="header__tablet-display-icon"
           />
         </span>
-        <Link className="header__tablet-logo">WTP</Link>
+        <Link to={`/home`} className="header__tablet-logo">
+          WTP
+        </Link>
         <div className="header__tablet-display-about">
-          <Link className="header__tablet-home">Home</Link>
-          <Link className="header__tablet-about">About</Link>
+          <Link to={`/home`} className="header__tablet-home">
+            Home
+          </Link>
+          <Link to={`/about`} className="header__tablet-about">
+            About
+          </Link>
         </div>
       </div>
     </header>

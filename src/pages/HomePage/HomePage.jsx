@@ -4,6 +4,7 @@ import { IoCameraOutline } from "react-icons/io5";
 import axios from "axios";
 import { TbCapture } from "react-icons/tb";
 import Webcam from "react-webcam";
+import { BeatLoader } from "react-spinners";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -11,6 +12,7 @@ export default function HomePage() {
   const [showCamera, setShowCamera] = useState(false);
   const [image, setImage] = useState(null);
   const webRef = useRef(null);
+  const [loading, setLoading] = useState(true);
 
   const showImage = () => {
     if (webRef.current) {
@@ -38,7 +40,9 @@ export default function HomePage() {
 
   return (
     <section className="main">
-      <h1 className="main__title"> Tap to find out </h1>
+      {!showCamera && !image && (
+        <h1 className="main__title"> Tap to find out </h1>
+      )}
       <section className="cam">
         {showCamera && (
           <Webcam
@@ -68,7 +72,6 @@ export default function HomePage() {
             Submit
           </button>
         )}
-        {/* </div> */}
       </section>
     </section>
   );
