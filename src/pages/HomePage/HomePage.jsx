@@ -19,6 +19,10 @@ export default function HomePage() {
   const [submit, setSubmit] = useState(true);
   const [refresh, setRefresh] = useState(false);
 
+  const camConstraints = {
+    facingMode: { exact: "environment" },
+  };
+
   const showImage = () => {
     if (webRef.current) {
       const screenshot = webRef.current.getScreenshot();
@@ -64,6 +68,7 @@ export default function HomePage() {
             ref={webRef}
             alt="webcam screenshot"
             className="cam__webcam"
+            videoConstraints={camConstraints}
           />
         )}
         {!showCamera && !image && (
