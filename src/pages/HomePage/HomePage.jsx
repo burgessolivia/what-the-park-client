@@ -1,12 +1,13 @@
 import "./HomePage.scss";
 import React, { useState, useRef } from "react";
-import { IoCameraOutline } from "react-icons/io5";
+// import { IoCameraOutline } from "react-icons/io5";
 import axios from "axios";
 import { TbCapture } from "react-icons/tb";
 import Webcam from "react-webcam";
 import { BeatLoader } from "react-spinners";
 import { HiOutlineRefresh } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import parkingSign from "../../assets/images/parking.svg";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -60,7 +61,7 @@ export default function HomePage() {
   return (
     <section className="main">
       {!showCamera && !image && (
-        <h1 className="main__title"> Tap to find out </h1>
+        <h1 className="main__title"> Tap 'P' to find out </h1>
       )}
       <section className="cam">
         {showCamera && (
@@ -73,7 +74,13 @@ export default function HomePage() {
         )}
         {!showCamera && !image && (
           <div className="main__img-div">
-            <IoCameraOutline onClick={handleClick} className="main__img" />
+            <img
+              src={parkingSign}
+              alt="parking sign"
+              className="main__img-button"
+              onClick={handleClick}
+            />
+            {/* <IoCameraOutline onClick={handleClick} className="main__img" /> */}
           </div>
         )}
         <img src={image} className="cam__screenshot" />
