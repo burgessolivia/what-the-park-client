@@ -8,16 +8,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // padding-top: 4rem;
-  // padding-bottom: 5rem;
-  // background-image: url("../../assets/images/parking.svg");
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // border: 1px solid black;
-  // padding-bottom: 17rem;
+  min-height: 80vh;
 
   @include tablet {
-    // padding-bottom: 25rem;
+    min-height: 100vh;
+
+    @include desktop {
+      min-height: 110vh;
+    }
   }
 
   &__title {
