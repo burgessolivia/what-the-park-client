@@ -68,7 +68,7 @@ export default function HomePage() {
             ref={webRef}
             alt="webcam screenshot"
             className="cam__webcam"
-            // videoConstraints={camConstraints}
+            videoConstraints={camConstraints}
           />
         )}
         {!showCamera && !image && (
