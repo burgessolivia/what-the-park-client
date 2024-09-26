@@ -20,7 +20,7 @@ export default function HomePage() {
   const [refresh, setRefresh] = useState(false);
 
   const camConstraints = {
-    facingMode: { exact: "environment" },
+    facingMode: { ideal: "environment" },
   };
 
   const showImage = () => {
