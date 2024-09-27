@@ -123,7 +123,7 @@
   }
 
   &__capture-div {
-    border: 1.5px solid $primary-light;
+    border: 1.5px solid $light-font-dark;
     border-radius: 50px;
     width: 2.5rem;
     height: 2.5rem;
@@ -170,6 +170,8 @@
 
   &__loader {
     color: $primary-light;
+    height: 4rem;
+    width: 10rem;
   }
 }
 
@@ -178,7 +180,6 @@
   flex-direction: column;
 
   &__message {
-    // border: 1px solid black;
     padding: 1rem;
     color: $light-font-dark;
     font-size: 1.5rem;

@@ -2,8 +2,15 @@ import { Link } from "react-router-dom";
 import "./Header.scss";
 import displayIcon from "../../assets/icons/dark-mode.svg";
 import logo from "../../assets/logos/logo-full.png";
+import { useState } from "react";
 
 export default function Header() {
+  const [clickedLink, setClickedLink] = useState();
+
+  const handleClick = (navClick) => {
+    setClickedLink(navClick);
+  };
+
   return (
     <header className="header">
       <div className="header__top">
@@ -19,10 +26,23 @@ export default function Header() {
         </Link>
       </div>
       <div className="header__bottom">
-        <Link to={`/home`} className="header__bottom-left">
+        <Link
+          to="/home"
+          className={`header__bottom-left ${
+            clickedLink === "home" ? "header__button-mobile--clicked" : ""
+          }`}
+          onClick={() => handleClick("home")}
+        >
           Home
         </Link>
-        <Link to={`/about`} className="header__bottom-right">
+
+        <Link
+          to="/about"
+          className={`header__bottom-right ${
+            clickedLink === "about" ? "header__button-mobile--clicked" : ""
+          }`}
+          onClick={() => handleClick("about")}
+        >
           About
         </Link>
       </div>
@@ -42,10 +62,22 @@ export default function Header() {
           />
         </Link>
         <div className="header__tablet-display-about">
-          <Link to={`/home`} className="header__tablet-home">
+          <Link
+            to="/home"
+            className={`header__tablet-home ${
+              clickedLink === "home" ? "header__tablet--clicked" : ""
+            }`}
+            onClick={() => handleClick("home")}
+          >
             Home
           </Link>
-          <Link to={`/about`} className="header__tablet-about">
+          <Link
+            to="/about"
+            className={`header__tablet-about ${
+              clickedLink === "about" ? "header__tablet--clicked" : ""
+            }`}
+            onClick={() => handleClick("about")}
+          >
             About
           </Link>
         </div>

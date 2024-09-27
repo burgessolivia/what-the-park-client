@@ -12,8 +12,8 @@ export default function AboutPage() {
             Thats where the idea for What The Park came from. What The Park
             allows the user to take a picture of said confusing parking sign on
             the web app and then simplifies the parking sign. <br /> <br /> So
-            there's no need anymore to wait around wasting time while decodes
-            works out the sign, because WTP can do it for you!
+            there's no need anymore to wait around wasting your time trying to
+            decode the sign, because WTP can do it for you!
           </p>
         </div>
       </div>
