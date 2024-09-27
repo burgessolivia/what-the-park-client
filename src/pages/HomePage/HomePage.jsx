@@ -105,13 +105,12 @@ export default function HomePage() {
             Submit
           </button>
         )}
-        <div>
+        <div className="loading-container">
           <BeatLoader
-            className="cam__loader"
-            // color={"purple"}
+            color={"#031d26"}
             loading={loading}
-            // cssOverride={override}
-            size={150}
+            // cssOverride={{ paddding: 10 }}
+            size={30}
             aria-label="Loading Spinner"
             data-testid="loader"
           />
