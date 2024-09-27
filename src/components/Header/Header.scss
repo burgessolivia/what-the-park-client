@@ -9,8 +9,18 @@
   flex-direction: column;
   gap: 1rem;
 
+  &--dark {
+    background-color: $background-dark;
+  }
+
   @include tablet {
     padding: 2rem;
+  }
+
+  &__top-display {
+    &--dark {
+      color: $dark-font-light;
+    }
   }
 
   &__top {
@@ -61,6 +71,12 @@
     font-weight: 500;
     text-transform: uppercase;
     padding: 0.5rem;
+
+    &--dark {
+      background-color: $background-dark;
+      color: $dark-font-light;
+      padding: 0.5rem;
+    }
 
     @include tablet {
       display: none;

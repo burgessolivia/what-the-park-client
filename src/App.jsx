@@ -4,11 +4,32 @@ import Header from "./components/Header/Header.jsx";
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import AboutPage from "./pages/AboutPage/AboutPage.jsx";
+import { useEffect, useState } from "react";
 
 export default function App() {
+  const [theme, setTheme] = useState("light");
+
+  const themeClick = () => {
+    console.log(theme);
+    if (theme === "light") {
+      setTheme("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      setTheme("light");
+      localStorage.setItem("theme", "light");
+    }
+  };
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      setTheme(storedTheme);
+    }
+  }, []);
+
   return (
     <BrowserRouter>
-      <Header />
+      <Header themeClick={themeClick} theme={theme} />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<HomePage />} />

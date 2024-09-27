@@ -3,8 +3,9 @@ import "./Header.scss";
 import displayIcon from "../../assets/icons/dark-mode.svg";
 import logo from "../../assets/logos/logo-full.png";
 import { useState } from "react";
+import { MdOutlineWbTwilight } from "react-icons/md";
 
-export default function Header() {
+export default function Header({ themeClick, theme }) {
   const [clickedLink, setClickedLink] = useState();
 
   const handleClick = (navClick) => {
@@ -12,15 +13,14 @@ export default function Header() {
   };
 
   return (
-    <header className="header">
+    <header className={`header ${theme === "dark" ? "header--dark" : ""}`}>
       <div className="header__top">
-        <span className="header__top-display">
-          <img
-            src={displayIcon}
-            alt="dark mode button"
-            className="header__top-display-icon"
-          />
-        </span>
+        <MdOutlineWbTwilight
+          onClick={themeClick}
+          className={`header__top-display ${
+            theme === "dark" ? "header__top-display--dark" : ""
+          }`}
+        ></MdOutlineWbTwilight>
         <Link to={`/home`} className="header__top-logo">
           <img src={logo} alt="logo image" className="header__top-logo-img" />
         </Link>
@@ -30,7 +30,7 @@ export default function Header() {
           to="/home"
           className={`header__bottom-left ${
             clickedLink === "home" ? "header__button-mobile--clicked" : ""
-          }`}
+          } ${theme === "dark" ? "header__bottom-left--dark" : ""}`}
           onClick={() => handleClick("home")}
         >
           Home
