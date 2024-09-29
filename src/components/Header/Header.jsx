@@ -3,7 +3,7 @@ import "./Header.scss";
 import displayIcon from "../../assets/icons/dark-mode.svg";
 import logo from "../../assets/logos/logo-full.png";
 import { useState } from "react";
-import { MdOutlineWbTwilight } from "react-icons/md";
+import { MdOutlineLightMode } from "react-icons/md";
 
 export default function Header({ themeClick, theme }) {
   const [clickedLink, setClickedLink] = useState();
@@ -15,12 +15,12 @@ export default function Header({ themeClick, theme }) {
   return (
     <header className={`header ${theme === "dark" ? "header--dark" : ""}`}>
       <div className="header__top">
-        <MdOutlineWbTwilight
+        <MdOutlineLightMode
           onClick={themeClick}
           className={`header__top-display ${
             theme === "dark" ? "header__top-display--dark" : ""
           }`}
-        ></MdOutlineWbTwilight>
+        ></MdOutlineLightMode>
         <Link to={`/home`} className="header__top-logo">
           <img src={logo} alt="logo image" className="header__top-logo-img" />
         </Link>

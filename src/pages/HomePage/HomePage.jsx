@@ -11,7 +11,7 @@ import parkingSign from "../../assets/images/parking.svg";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
-export default function HomePage() {
+export default function HomePage({ themeClick, theme }) {
   const [showCamera, setShowCamera] = useState(false);
   const [image, setImage] = useState(null);
   const webRef = useRef(null);
@@ -59,7 +59,7 @@ export default function HomePage() {
   };
 
   return (
-    <section className="main">
+    <section className={`main ${theme === "dark" ? "main--dark" : ""}`}>
       {!showCamera && !image && (
         <h1 className="main__title"> Tap 'P' to find out </h1>
       )}
@@ -83,6 +83,13 @@ export default function HomePage() {
             {/* <IoCameraOutline onClick={handleClick} className="main__img" /> */}
           </div>
         )}
+
+        <section className="theme-toggle">
+          <button onClick={themeClick} className="theme-toggle__button">
+            {theme === "dark" ? "main--dark" : ""}
+          </button>
+        </section>
+
         <img src={image} className="cam__screenshot" />
         {showCamera && (
           <div className="cam__capture-div">

@@ -4,6 +4,7 @@ import Header from "./components/Header/Header.jsx";
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import AboutPage from "./pages/AboutPage/AboutPage.jsx";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 import { useEffect, useState } from "react";
 
 export default function App() {
@@ -31,9 +32,15 @@ export default function App() {
     <BrowserRouter>
       <Header themeClick={themeClick} theme={theme} />
       <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
+        <Route
+          path="/"
+          element={
+            <Navigate to="/home" themeClick={themeClick} theme={theme} />
+          }
+        />
         <Route path="/home" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

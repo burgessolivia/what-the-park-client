@@ -10,6 +10,10 @@
   align-items: center;
   min-height: 80vh;
 
+  &--dark {
+    background-color: $background-dark;
+  }
+
   @include tablet {
     min-height: 100vh;
 
