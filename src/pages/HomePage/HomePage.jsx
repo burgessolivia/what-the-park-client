@@ -1,6 +1,5 @@
 import "./HomePage.scss";
 import React, { useState, useRef } from "react";
-// import { IoCameraOutline } from "react-icons/io5";
 import axios from "axios";
 import { TbCapture } from "react-icons/tb";
 import Webcam from "react-webcam";
@@ -80,15 +79,14 @@ export default function HomePage({ themeClick, theme }) {
               className="main__img-button"
               onClick={handleClick}
             />
-            {/* <IoCameraOutline onClick={handleClick} className="main__img" /> */}
           </div>
         )}
 
-        <section className="theme-toggle">
+        {/* <section className="theme-toggle">
           <button onClick={themeClick} className="theme-toggle__button">
             {theme === "dark" ? "main--dark" : ""}
           </button>
-        </section>
+        </section> */}
 
         <img src={image} className="cam__screenshot" />
         {showCamera && (
@@ -116,7 +114,6 @@ export default function HomePage({ themeClick, theme }) {
           <BeatLoader
             color={"#031d26"}
             loading={loading}
-            // cssOverride={{ paddding: 10 }}
             size={30}
             aria-label="Loading Spinner"
             data-testid="loader"
