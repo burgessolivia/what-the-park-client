@@ -18,8 +18,10 @@
   }
 
   &__top-display {
+    display: none;
     &--dark {
       color: $dark-font-light;
+      display: none;
     }
   }
 
@@ -124,6 +126,7 @@
     &-display-icon {
       height: 1.5rem;
       width: 1.5rem;
+      display: none;
     }
 
     &-display-about {

@@ -6,7 +6,7 @@ import { useState } from "react";
 import { MdOutlineLightMode } from "react-icons/md";
 
 export default function Header({ themeClick, theme }) {
-  const [clickedLink, setClickedLink] = useState();
+  const [clickedLink, setClickedLink] = useState("home");
 
   const handleClick = (navClick) => {
     setClickedLink(navClick);

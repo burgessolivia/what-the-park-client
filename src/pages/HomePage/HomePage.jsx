@@ -1,5 +1,5 @@
 import "./HomePage.scss";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { TbCapture } from "react-icons/tb";
 import Webcam from "react-webcam";
@@ -22,6 +22,39 @@ export default function HomePage({ themeClick, theme }) {
   const camConstraints = {
     facingMode: { ideal: "environment" },
   };
+
+  const PDown = (event) => {
+    if (event.key === "p") {
+      setShowCamera(!showCamera);
+      setImage(null);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", PDown);
+    return () => {
+      window.removeEventListener("keydown", PDown);
+    };
+  }, []);
+
+  // useEffect(() => {
+  //   const spaceDown = (event) => {
+  //     if (event.key === " ") {
+  //       console.log("space pressed");
+  //       console.log("space pressed", image);
+  //       if (image) {
+  //         setImage(null);
+  //         console.log("image set");
+  //       } else {
+  //         setImage(true);
+  //       }
+  //     }
+  //   };
+  //   window.addEventListener("keydown", spaceDown);
+  //   return () => {
+  //     window.removeEventListener("keydown", spaceDown);
+  //   };
+  // }, [image, submit]);
 
   const showImage = () => {
     if (webRef.current) {
@@ -49,6 +82,7 @@ export default function HomePage({ themeClick, theme }) {
       setLoading(false);
       setResponse(response.data.choices[0].message.content);
       console.log(response.data);
+      window.scrollTo({ top: 1000, behavior: "smooth" });
     }
   };
 
