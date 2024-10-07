@@ -24,14 +24,19 @@ export default function HomePage({ themeClick, theme }) {
   };
 
   const PDown = (event) => {
+    console.log(event);
     if (event.key === "p") {
       setShowCamera(!showCamera);
       setImage(null);
+    }
+    if (event.key == " ") {
+      showImage();
     }
   };
 
   useEffect(() => {
     window.addEventListener("keydown", PDown);
+
     return () => {
       window.removeEventListener("keydown", PDown);
     };
